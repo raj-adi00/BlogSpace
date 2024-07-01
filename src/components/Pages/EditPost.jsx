@@ -6,12 +6,13 @@ function EditPost() {
     const [posts, setPosts] = useState(null);
     const { slug } = useParams()
     const navigate = useNavigate()
-
+// console.log(slug)
     useEffect(() => {
         if (slug) {
             service.getPost(slug).then((post) => {
                 if (post) {
                     setPosts(post)
+                    // console.log(posts)
                 }
                 else {
                     navigate('/')

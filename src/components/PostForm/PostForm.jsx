@@ -9,14 +9,13 @@ function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getFieldState, getValues } = useForm({
         defaultValues: {
             title: post?.title || '',
-            slug: post?.slug || '',
+            slug: post?.$id || '',
             content: post?.content || '',
             status: post?.status || 'active',
         }
     })
     const navigate = useNavigate();
     const userdata = useSelector(state => state.auth.userData)
-
     const submit = async (data) => {
         if (post) {
             const file = data.featuredimage[0] ? await service.uploadFile(data.featuredimage[0]) : null
@@ -54,8 +53,8 @@ function PostForm({ post }) {
                 .trim()
                 .toLowerCase()
                 // .replace(/^[a-zA-X\d\s]+/g, '-')
-                // .replace(/\s/g, '-')
-                
+                .replace(/\s/g, '-')
+
         }
         return ""
     }, [])
