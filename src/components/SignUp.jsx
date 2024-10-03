@@ -43,7 +43,7 @@ function SignUp() {
                     Sign In
                 </Link>
             </p>
-            {/* {error && <p className="text-red-600 mt-8 text-center">{error}</p>} */}
+            {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
             <form onSubmit={handleSubmit(hsignUp)}>
               
                 <div className='space-y-5'>

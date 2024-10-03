@@ -30,6 +30,7 @@ function PostForm({ post }) {
                 navigate(`/post/${dbpost.$id}`)
             }
         } else {
+            console.log(userdata);
             const file = data.featuredimage[0] ? await service.uploadFile(data.featuredimage[0]) : null;
             console.log(file.$id)
             if (file) {
